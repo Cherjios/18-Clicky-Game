@@ -1,10 +1,28 @@
 import React from 'react';
-import HelloDiv from "./components/helloDiv"
+import Wrapper from "./components/Wrapper"
+import AppBody from "./components/AppBody/index"
+import Footer from "./components/Footer"
+
 
 
 
 function App() {
-  return <HelloDiv />;
+  return (
+    <div>
+      <Wrapper>
+      <AppBody />
+      <Footer />
+      </Wrapper>
+      
+      
+
+
+
+    </div>
+
+
+  );
+
 }
 
 export default App;
