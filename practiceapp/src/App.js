@@ -52,7 +52,12 @@ class App extends Component {
   
   setMaxScore = () => {
     // We always use the setState method to update a component's state
-    this.setState({ score: 0 });
+    if(this.state.MaxScore < this.state.score){
+      this.setState ({MaxScore: this.state.score})
+    }else{
+      this.setState({ MaxScore: 10 });
+    }
+    
   }
 
 
@@ -69,7 +74,8 @@ class App extends Component {
     if(this.clickTracker[num]=== 1){
       this.setScoreToZero();
       console.log("You Lost");
-      this.clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0}; ;
+      this.clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0};
+      this.setMaxScore();
     }else{
       this.clickTracker[num]=1; 
       this.setState({
