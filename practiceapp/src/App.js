@@ -36,13 +36,19 @@ class App extends Component {
     score:0
   };
 
+  // Increment score  by 1
+  IncrementScore = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ score: this.state.score + 1 });
+  };
   
   imageCardClick = e => {
     e.preventDefault();
     console.log(e.target.alt);
     this.setState({
-      imageToClick: randomImgObj(),
-    score : 100});
+      imageToClick: randomImgObj()
+    });
+    this.IncrementScore();
   }
 
   render() {
