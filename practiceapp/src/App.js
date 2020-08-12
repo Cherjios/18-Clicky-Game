@@ -30,10 +30,13 @@ console.log(RanNewObj);
 
 class App extends Component {
 
+
+
   
   state = {
     imageToClick: RanNewObj,
-    score:0
+    score:0,
+    MaxScore: 10
   };
 
   // Increment score  by 1
@@ -41,14 +44,41 @@ class App extends Component {
     // We always use the setState method to update a component's state
     this.setState({ score: this.state.score + 1 });
   };
+
+  setScoreToZero = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ score: 0 });
+  }
   
+  setMaxScore = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ score: 0 });
+  }
+
+
+  
+  //check image clicked
+  clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0};
+
+
+
   imageCardClick = e => {
     e.preventDefault();
-    console.log(e.target.alt);
-    this.setState({
-      imageToClick: randomImgObj()
-    });
-    this.IncrementScore();
+    const num = e.target.alt;
+    console.log(num);
+    if(this.clickTracker[num]=== 1){
+      this.setScoreToZero();
+      console.log("You Lost");
+      this.clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0}; ;
+    }else{
+      this.clickTracker[num]=1; 
+      this.setState({
+        imageToClick: randomImgObj()
+      });
+      this.IncrementScore();
+    }
+    console.log(this.clickTracker);
+    
   }
 
   render() {
@@ -61,7 +91,7 @@ class App extends Component {
                 <a href="/">Clicky Game</a>
               </li>
               <li className="">Click an image to begin!</li>
-              <li>Score: {this.state.score} | Top Score: 0</li>
+    <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
             </ul>
           </nav>
           {this.state.imageToClick.map(images => (
