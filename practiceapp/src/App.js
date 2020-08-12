@@ -3,6 +3,7 @@ import "./style.css";
 import Wrapper from "./components/Wrapper"
 import Footer from "./components/Footer"
 import ImgCard from "./components/ImgCard"
+import Jumbotron from "./components/jumbotron"
 import img from "./images.json"
 
 function randomNumber() {
@@ -34,7 +35,7 @@ class App extends Component {
     imageToClick: RanNewObj,
     score: 0,
     MaxScore: 10,
-    text:"Click an image to begin!"
+    text: "Click an image to begin!"
   };
 
   // Increment score  by 1
@@ -96,29 +97,33 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Wrapper>
-          <nav className="navbar">
-            <ul>
-              <li className="brand">
-                <a href="/">Clicky Game</a>
-              </li>
-              <li className="">{this.state.text}</li>
-              <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
-            </ul>
-          </nav>
-          {this.state.imageToClick.map(images => (
-            <ImgCard
-              id={images.id}
-              key={images.uuid}
-              image={images.image}
-              imageCardClick={this.imageCardClick}
+        <div className="container">
+        <nav className="navbar">
+          <ul>
+            <li className="brand">
+              <a href="/">Clicky Game</a>
+            </li>
+            <li className="">{this.state.text}</li>
+            <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
+          </ul>
+        </nav>  
+        </div>
 
-            />
-          ))}
+        
+        <Jumbotron />
+        <Wrapper>
+          <div className="container">
+            {this.state.imageToClick.map(images => (
+              <ImgCard
+                id={images.id}
+                key={images.uuid}
+                image={images.image}
+                imageCardClick={this.imageCardClick}
+              />
+            ))}
+          </div>
           <Footer />
         </Wrapper>
-
-
       </div>
 
     );
