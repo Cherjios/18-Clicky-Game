@@ -5,24 +5,24 @@ import Footer from "./components/Footer"
 import ImgCard from "./components/ImgCard"
 import img from "./images.json"
 
-function randomNumber(){
+function randomNumber() {
   // let min = Math.ceil(1);
   // let max = Math.floor(18);
   return Math.floor(Math.random() * 18); // (max - min + 1)) + min;
 }
 
-function randomImgObj () {
+function randomImgObj() {
   var newImgObj = [];
 
-  for(var i=0; i < 12; i++){
-   let  number = randomNumber();
-   const image = {...img[number],uuid:i}
+  for (var i = 0; i < 12; i++) {
+    let number = randomNumber();
+    const image = { ...img[number], uuid: i }
     newImgObj.push(image);
   }
   return newImgObj;
 
 }
-var RanNewObj =[];
+var RanNewObj = [];
 
 RanNewObj = randomImgObj();
 console.log(RanNewObj);
@@ -30,13 +30,11 @@ console.log(RanNewObj);
 
 class App extends Component {
 
-
-
-  
   state = {
     imageToClick: RanNewObj,
-    score:0,
-    MaxScore: 10
+    score: 0,
+    MaxScore: 10,
+    text:"Click an image to begin!"
   };
 
   // Increment score  by 1
@@ -49,42 +47,50 @@ class App extends Component {
     // We always use the setState method to update a component's state
     this.setState({ score: 0 });
   }
-  
-  setMaxScore = () => {
+
+  setText = () => {
     // We always use the setState method to update a component's state
-    if(this.state.MaxScore < this.state.score){
-      this.setState ({MaxScore: this.state.score})
-    }else{
-      this.setState({ MaxScore: 10 });
-    }
-    
+    this.setState({ text: "You guessed Correctly!" });
   }
 
+  setTextLost = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ text: "You guessed incorrectly!" });
+  }
 
-  
-  //check image clicked
-  clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0};
+  setMaxScore = () => {
+    // We always use the setState method to update a component's state
+    if (this.state.MaxScore < this.state.score) {
+      this.setState({ MaxScore: this.state.score })
+    } else {
+      this.setState({ MaxScore: 10 });
+    }
 
+  }
 
+  //Tracking image clicked
+  clickTracker = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0 };
 
   imageCardClick = e => {
     e.preventDefault();
     const num = e.target.alt;
     console.log(num);
-    if(this.clickTracker[num]=== 1){
+    if (this.clickTracker[num] === 1) {
+      this.setTextLost();
       this.setScoreToZero();
       console.log("You Lost");
-      this.clickTracker = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0};
+      this.clickTracker = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0, 13: 0, 14: 0, 15: 0, 16: 0, 17: 0, 18: 0 };
       this.setMaxScore();
-    }else{
-      this.clickTracker[num]=1; 
+    } else {
+      this.setText();
+      this.clickTracker[num] = 1;
       this.setState({
         imageToClick: randomImgObj()
       });
       this.IncrementScore();
     }
     console.log(this.clickTracker);
-    
+
   }
 
   render() {
@@ -96,18 +102,18 @@ class App extends Component {
               <li className="brand">
                 <a href="/">Clicky Game</a>
               </li>
-              <li className="">Click an image to begin!</li>
-    <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
+              <li className="">{this.state.text}</li>
+              <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
             </ul>
           </nav>
           {this.state.imageToClick.map(images => (
             <ImgCard
-            id={images.id}
-            key = {images.uuid}
-            image={images.image}
-            imageCardClick = {this.imageCardClick}
-            
-          />
+              id={images.id}
+              key={images.uuid}
+              image={images.image}
+              imageCardClick={this.imageCardClick}
+
+            />
           ))}
           <Footer />
         </Wrapper>
