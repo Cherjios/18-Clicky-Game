@@ -2,7 +2,7 @@
 Memory game with React. This web application has been divided   into components, manage component state, and respond to user events.
 
 ## Deployed link
-[https://sergiolopez-portfolio2.herokuapp.com/](https://sergiolopez-portfolio2.herokuapp.com/)
+[https://cherjios.github.io/18-Clicky-Game/](https://cherjios.github.io/18-Clicky-Game/)
 
 ## View
 ![img](./clickyGame.gif)
