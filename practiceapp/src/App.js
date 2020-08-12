@@ -97,20 +97,19 @@ class App extends Component {
   render() {
     return (
       <div>
+
+<Jumbotron />
         <div className="container">
+        
         <nav className="navbar">
           <ul>
-            <li className="brand">
-              <a href="/">Clicky Game</a>
-            </li>
-            <li className="">{this.state.text}</li>
+            <li className="brand"> Clicky Game!</li>
+            <li>{this.state.text}</li>
             <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
           </ul>
         </nav>  
         </div>
-
-        
-        <Jumbotron />
+        <br />
         <Wrapper>
           <div className="container">
             {this.state.imageToClick.map(images => (
