@@ -37,10 +37,12 @@ class App extends Component {
   };
 
   
-  imageCardClick (e){
-    console.log(e.target.alt)
-    const RanNewObj = this.imageToClick;
-    this.setState({imageToClick:RanNewObj})
+  imageCardClick = e => {
+    e.preventDefault();
+    console.log(e.target.alt);
+    this.setState({
+      imageToClick: randomImgObj(),
+    score : 100});
   }
 
   render() {
@@ -56,7 +58,7 @@ class App extends Component {
               <li>Score: {this.state.score} | Top Score: 0</li>
             </ul>
           </nav>
-          {this.state.imageToClick.map((images) => (
+          {this.state.imageToClick.map(images => (
             <ImgCard
             id={images.id}
             key = {images.uuid}
