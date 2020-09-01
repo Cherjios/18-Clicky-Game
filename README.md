@@ -39,9 +39,9 @@ npm run start
 ## Contributing
 * **SERGIO LOPEZ** 
 
-- [Link to Portfolio Site](https://cherjios.github.io/Responsive-Portfolio/)
+- [Link to Portfolio Site](https://cherjios.github.io/React-Portfolio/)
 - [Link to Github](https://github.com/cherjios)
 - [Link to LinkedIn](https://www.linkedin.com/in/sergio-lopez-81790579)
 
 ## Questions
- sc.lopezm@gmail.com
+ slopez0286@gmail.com
