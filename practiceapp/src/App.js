@@ -111,18 +111,25 @@ class App extends Component {
 
 <Jumbotron />
         <div className="container">
-        
-        <nav className="navbar">
+
+        <div className="row divTitle">
+          <div className="col">Clicky Game!</div>
+          <div className="col">{this.state.text}</div>
+          <div className="col">
+          <span className="score"> Score:{this.state.score} </span>| <span className="TopScore">Top Score:{this.state.MaxScore} </span></div>
+        </div>
+        <br />
+        {/* <nav className="navbar">
           <ul>
             <li className="brand"> Clicky Game!</li>
             <li>{this.state.text}</li>
             <li>Score: {this.state.score} | Top Score: {this.state.MaxScore}</li>
           </ul>
-        </nav>  
+        </nav>   */}
         </div>
         <br />
         <Wrapper>
-          <div className="container">
+          <div className="container float">
             {this.state.imageToClick.map(images => (
               <ImgCard
                 id={images.id}
