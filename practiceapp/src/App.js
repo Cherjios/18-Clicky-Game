@@ -37,7 +37,7 @@ function randomImgObj() {
 var RanNewObj = [];
 
 RanNewObj = randomImgObj();
-console.log(RanNewObj);
+// console.log(RanNewObj);
 
 
 class App extends Component {
@@ -86,7 +86,7 @@ class App extends Component {
   imageCardClick = e => {
     e.preventDefault();
     const num = e.target.alt;
-    console.log(num);
+    // console.log(num);
     if (this.clickTracker[num] === 1) {
       this.setTextLost();
       this.setScoreToZero();
@@ -101,7 +101,7 @@ class App extends Component {
       });
       this.IncrementScore();
     }
-    console.log(this.clickTracker);
+    // console.log(this.clickTracker);
 
   }
 
