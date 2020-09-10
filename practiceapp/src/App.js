@@ -17,8 +17,17 @@ function randomImgObj() {
 
   for (var i = 0; i < 12; i++) {
     let number = randomNumber();
-    const image = { ...img[number], uuid: i }
-    newImgObj.push(image);
+    let arrayNumber = [];
+    if(!arrayNumber.includes(number)){
+      arrayNumber.push(number);
+      console.log(arrayNumber);
+      const image = { ...img[number], uuid: i }
+      newImgObj.push(image);
+    }
+    else{
+      i--;
+    }
+    
   }
   return newImgObj;
 
