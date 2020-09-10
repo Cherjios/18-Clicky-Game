@@ -1,7 +1,10 @@
 nav, .divTitle{
-    background-color: #63a4ff;
-background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
-    font-family: 'Sora', sans-serif;
+    /* background-color: #63a4ff;
+background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%); */
+background-color: #ffcfdf;
+background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
+
+font-family: 'Sora', sans-serif;
     
 }
 body{
@@ -24,18 +27,19 @@ li{
 }
 
 .divTitle{
-   font-size:25px;
+   font-size:28px;
 }
 .score{
-    color: white;
+    color: green;
 }
 .TopScore{
     color: red
 }
   
 .row{
-    height: 100px;
+    height: 150px;
     text-align:center;
     padding: 50px 0;
+    color: rgb(55, 79, 88);
 }
 

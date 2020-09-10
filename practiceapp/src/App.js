@@ -100,6 +100,7 @@ class App extends Component {
         imageToClick: randomImgObj()
       });
       this.IncrementScore();
+      this.setMaxScore();
     }
     // console.log(this.clickTracker);
 
@@ -116,7 +117,7 @@ class App extends Component {
           <div className="col">Clicky Game!</div>
           <div className="col">{this.state.text}</div>
           <div className="col">
-          <span className="score"> Score:{this.state.score} </span>| <span className="TopScore">Top Score:{this.state.MaxScore} </span></div>
+          <span className="score"> Score: {this.state.score} </span>| <span className="TopScore">Top Score: {this.state.MaxScore} </span></div>
         </div>
         <br />
         {/* <nav className="navbar">
