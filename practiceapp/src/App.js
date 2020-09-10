@@ -132,6 +132,7 @@ class App extends Component {
               />
             ))}
           </div>
+          <br />
           <Footer />
         </Wrapper>
       </div>

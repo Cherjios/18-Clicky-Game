@@ -1,5 +1,6 @@
 img{
+    margin:10px;
     width: 350px;
     height:350px ;
-    float: none;
+    /* float: none; */
 }
