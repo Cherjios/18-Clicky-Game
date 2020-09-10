@@ -14,10 +14,11 @@ function randomNumber() {
 
 function randomImgObj() {
   var newImgObj = [];
+  var  arrayNumber = [];
 
   for (var i = 0; i < 12; i++) {
     let number = randomNumber();
-    let arrayNumber = [];
+    
     if(!arrayNumber.includes(number)){
       arrayNumber.push(number);
       console.log(arrayNumber);
@@ -25,6 +26,7 @@ function randomImgObj() {
       newImgObj.push(image);
     }
     else{
+      console.log("else" + arrayNumber);
       i--;
     }
     
