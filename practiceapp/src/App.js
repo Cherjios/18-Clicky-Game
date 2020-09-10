@@ -21,12 +21,12 @@ function randomImgObj() {
     
     if(!arrayNumber.includes(number)){
       arrayNumber.push(number);
-      console.log(arrayNumber);
+      // console.log(arrayNumber);
       const image = { ...img[number], uuid: i }
       newImgObj.push(image);
     }
     else{
-      console.log("else" + arrayNumber);
+      // console.log("else" + arrayNumber);
       i--;
     }
     
