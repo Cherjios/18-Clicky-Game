@@ -27,7 +27,7 @@ li{
 }
 
 .divTitle{
-   font-size:28px;
+   font-size:25px;
 }
 .score{
     color: green;
@@ -41,5 +41,12 @@ li{
     text-align:center;
     padding: 50px 0;
     color: rgb(55, 79, 88);
+}
+
+@media only screen and (max-width: 768px) {
+    .divTitle{
+        font-size:15px;
+     }
+
 }
 
